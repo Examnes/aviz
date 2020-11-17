@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>main_menue</class>
+ <widget class="QWidget" name="main_menue">
   <property name="windowModality">
    <enum>Qt::NonModal</enum>
   </property>
@@ -20,13 +20,13 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Меню</string>
   </property>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>10</y>
      <width>461</width>
      <height>131</height>
     </rect>
@@ -37,22 +37,6 @@
     </property>
     <item row="0" column="0">
      <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Preferred</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="0" column="2">
-     <spacer name="horizontalSpacer_3">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -95,6 +79,22 @@
       </item>
      </layout>
     </item>
+    <item row="0" column="2">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Preferred</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget">
@@ -110,7 +110,7 @@
     <item>
      <widget class="QLabel" name="l_developer_name">
       <property name="text">
-       <string>Выполнил: Тагиров Руслан АГТУ</string>
+       <string>   Выполнил: Тагиров Руслан АГТУ</string>
       </property>
      </widget>
     </item>
@@ -130,7 +130,7 @@
     <item>
      <widget class="QLabel" name="l_creation_date">
       <property name="text">
-       <string>2020 год</string>
+       <string>2020 год  </string>
       </property>
      </widget>
     </item>

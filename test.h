@@ -1,24 +1,28 @@
-#ifndef MENUE_H
-#define MENUE_H
+#ifndef TEST_H
+#define TEST_H
 
 #include <QWidget>
+#include <QTimer>
 
 namespace Ui
 {
     class f_test;
 }
 
-class test : public QWidget
+class test_window : public QWidget
 {
     Q_OBJECT
 public:
-    explicit test(QWidget *parent = 0);
-    ~test();
-
+    explicit test_window(QWidget *parent = 0);
+    ~test_window();
+    void closeEvent(QCloseEvent *);
 private:
     Ui::f_test *ui;
+    QTimer* timer;
+    int last;
 private slots:
     void handle_enter_pressed();
+    void updateCountdown();
 };
 
-#endif // MENUE_H
+#endif // TEST_H
