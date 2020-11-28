@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTimer>
+#include <test_logic.h>
 
 namespace Ui
 {
@@ -13,10 +14,12 @@ class test_window : public QWidget
 {
     Q_OBJECT
 public:
-    explicit test_window(QWidget *parent = 0);
+    explicit test_window(bool pretend,QWidget *parent = 0);
     ~test_window();
     void closeEvent(QCloseEvent *);
 private:
+    test_logic l;
+    bool is_pretend;
     Ui::f_test *ui;
     QTimer* timer;
     int last;

@@ -3,7 +3,7 @@
 #include "moc_test.cpp"
 #include <sstream>
 
-test_window::test_window(QWidget *parent) : QWidget(parent, Qt::Window), ui(new Ui::f_test)
+test_window::test_window(bool pretend,QWidget *parent) : QWidget(parent, Qt::Window), ui(new Ui::f_test),is_pretend(pretend)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -13,6 +13,9 @@ test_window::test_window(QWidget *parent) : QWidget(parent, Qt::Window), ui(new 
     connect(timer, SIGNAL(timeout()), this, SLOT(updateCountdown()));
     timer->start(1000);
     last = 5 * 60;
+    if(is_pretend)
+        this->setWindowTitle("Тест - обучающий режим (действия не записываются)");
+    l = test_logic(42);
 }
 
 void test_window::handle_enter_pressed()

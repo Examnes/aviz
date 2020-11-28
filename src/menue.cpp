@@ -1,6 +1,7 @@
 #include "menue.h"
 #include "ui_main_menue.h"
 #include "moc_menue.cpp"
+#include <QMessageBox>
 
 
 menue::menue(QWidget *parent) : QWidget(parent), ui(new Ui::main_menue)
@@ -18,12 +19,17 @@ void menue::handle_visualization_pressed()
 
 void menue::handle_theory_pressed()
 {
-    
+
+    mTheory = new theory_window(this);
+    mTheory->show();
 }
 
 void menue::handle_test_pressed()
 {
-    mTest = new test_window(this);
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Режим обучения", "Запустить тест в режиме обучения?",
+                       QMessageBox::Yes|QMessageBox::No);
+    mTest = new test_window(reply == QMessageBox::Yes,this);
     mTest->show();
 }
 

@@ -2,6 +2,9 @@
 #define THEORY_H
 
 #include <QWidget>
+#include <QFileSystemModel>
+#include <QItemSelection>
+#include <QCloseEvent>
 
 namespace Ui
 {
@@ -17,9 +20,9 @@ public:
     void closeEvent(QCloseEvent *);
 private:
     Ui::f_theory *ui;
+    QFileSystemModel* model;
 private slots:
-    void handle_forward_pressed();
-    void handle_backward_pressed();
+    void user_selected(const QItemSelection&,const QItemSelection&);
 };
 
 #endif // THEORY_H

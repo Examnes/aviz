@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "test.h"
+#include "theory.h"
 
 namespace Ui
 {
@@ -15,10 +16,10 @@ class menue : public QWidget
 public:
     explicit menue(QWidget *parent = 0);
     ~menue();
-
 private:
     Ui::main_menue *ui;
     test_window *mTest;
+    theory_window* mTheory;
 private slots:
     void handle_visualization_pressed();
     void handle_theory_pressed();
