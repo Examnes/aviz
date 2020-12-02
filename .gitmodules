@@ -1,0 +1,3 @@
+[submodule "qgv"]
+	path = qgv
+	url = https://github.com/nbergont/qgv.git

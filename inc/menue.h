@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "test.h"
 #include "theory.h"
+#include "visualization.h"
 
 namespace Ui
 {
@@ -18,8 +19,9 @@ public:
     ~menue();
 private:
     Ui::main_menue *ui;
-    test_window *mTest;
+    test_window* mTest;
     theory_window* mTheory;
+    visualization_window* mVis;
 private slots:
     void handle_visualization_pressed();
     void handle_theory_pressed();

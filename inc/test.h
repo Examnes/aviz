@@ -14,7 +14,7 @@ class test_window : public QWidget
 {
     Q_OBJECT
 public:
-    explicit test_window(bool pretend,QWidget *parent = 0);
+    explicit test_window(bool pretend,QString username,QWidget *parent = 0);
     ~test_window();
     void closeEvent(QCloseEvent *);
 private:
@@ -23,6 +23,8 @@ private:
     Ui::f_test *ui;
     QTimer* timer;
     int last;
+    void update_placeholders();
+    QString name;
 private slots:
     void handle_enter_pressed();
     void updateCountdown();

@@ -13,16 +13,6 @@
   <property name="windowTitle">
    <string>Тест</string>
   </property>
-  <widget class="QTextBrowser" name="t_question">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>581</width>
-     <height>171</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -111,16 +101,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="t_options">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>250</y>
-     <width>581</width>
-     <height>81</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="b_enter">
    <property name="geometry">
     <rect>
@@ -145,6 +125,32 @@
    </property>
    <property name="text">
     <string>5: 00</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="t_question">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>581</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="t_options">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>250</y>
+     <width>581</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
