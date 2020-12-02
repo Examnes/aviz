@@ -2,6 +2,8 @@
 #include "ui_main_menue.h"
 #include "moc_menue.cpp"
 #include <QMessageBox>
+#include <QLineEdit>
+#include <QInputDialog>
 
 
 menue::menue(QWidget *parent) : QWidget(parent), ui(new Ui::main_menue)
@@ -14,7 +16,8 @@ menue::menue(QWidget *parent) : QWidget(parent), ui(new Ui::main_menue)
 
 void menue::handle_visualization_pressed()
 {
-    
+    mVis = new visualization_window(this);
+    mVis->show();
 }
 
 void menue::handle_theory_pressed()
@@ -27,10 +30,17 @@ void menue::handle_theory_pressed()
 void menue::handle_test_pressed()
 {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Режим обучения", "Запустить тест в режиме обучения?",
+    bool ok;
+    QString username = QInputDialog::getText(this, tr("Введите имя"),
+                        tr("Имя пользователя:"), QLineEdit::Normal,
+                        QDir::home().dirName(), &ok);
+    if (ok)
+    {
+        reply = QMessageBox::question(this, "Режим обучения", "Запустить тест в режиме обучения?",
                        QMessageBox::Yes|QMessageBox::No);
-    mTest = new test_window(reply == QMessageBox::Yes,this);
-    mTest->show();
+        mTest = new test_window(reply == QMessageBox::Yes,username,this);
+        mTest->show();
+    }
 }
 
 menue::~menue()

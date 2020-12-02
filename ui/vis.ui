@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>f_vis</class>
+ <widget class="QWidget" name="f_vis">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -26,9 +26,9 @@
   <widget class="QPushButton" name="b_vis_forward">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>442</x>
      <y>440</y>
-     <width>83</width>
+     <width>121</width>
      <height>25</height>
     </rect>
    </property>
@@ -36,12 +36,12 @@
     <string>Вперед</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_viz_backward">
+  <widget class="QPushButton" name="b_vis_backward">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>440</y>
-     <width>83</width>
+     <width>121</width>
      <height>25</height>
     </rect>
    </property>
@@ -49,25 +49,12 @@
     <string>Назад</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_viz_exit">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>440</y>
-     <width>83</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Выйти</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="b_vis_about">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>462</x>
      <y>10</y>
-     <width>83</width>
+     <width>111</width>
      <height>25</height>
     </rect>
    </property>

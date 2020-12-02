@@ -2,8 +2,11 @@
 #include "ui_test.h"
 #include "moc_test.cpp"
 #include <sstream>
+#include <QTextStream>
+#include <QMessageBox>
+#include <QStringBuilder>
 
-test_window::test_window(bool pretend,QWidget *parent) : QWidget(parent, Qt::Window), ui(new Ui::f_test),is_pretend(pretend)
+test_window::test_window(bool pretend,QString username,QWidget *parent) :name(username), QWidget(parent, Qt::Window), ui(new Ui::f_test),is_pretend(pretend)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -15,12 +18,44 @@ test_window::test_window(bool pretend,QWidget *parent) : QWidget(parent, Qt::Win
     last = 5 * 60;
     if(is_pretend)
         this->setWindowTitle("Тест - обучающий режим (действия не записываются)");
-    l = test_logic(42);
+    l = test_logic(42,2);
+    update_placeholders();
+}
+
+void test_window::update_placeholders()
+{
+    ui->t_question->setPlainText(l.get_question());
+    QString options;
+    QVector<QString> a_options = l.get_options();
+    for(int i = 0; i < a_options.size();i++)
+    {
+        QString s = a_options[i];
+        options = options % QString::number(i + 1) % ". " % s % "\n";
+    }
+    ui->t_options->setPlainText(options);
+    ui->completed_tracker->setValue(100 * l.get_progress());
 }
 
 void test_window::handle_enter_pressed()
 {
-    
+    bool is_right = l.approve(ui->i_answer->toPlainText());
+    if(is_pretend)
+    {
+        if(!is_right)
+        {
+            QMessageBox::warning(this, "Внимание","Вы ответили неправильно, верный ответ был: " + l.get_right_answer());
+        }
+    }
+    if (!l.is_done())
+    {
+        update_placeholders();
+    }else
+    {
+        QMessageBox::information(this, "Результат","Вы прошли тест, ваш результат: " + QString::number(l.get_score()));
+        if(!is_pretend)
+            l.save_result(name);
+        this->close();
+    }
 }
 
 void test_window::updateCountdown()
