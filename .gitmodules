@@ -1,1 +1,4 @@
 
+[submodule "qgv"]
+	path = qgv
+	url = https://github.com/Examnes/qgv.git
